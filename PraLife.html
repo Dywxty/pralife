@@ -1,0 +1,355 @@
+<!--
+  <!DOCTYPE html> - informa ao navegador que o site foi formado e esta utilizando HTML5.
+  Isso evita problemas de compatibilidade e ajuda o navegador a renderizar o conteúdo corretamente
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <!-- Define o conjunto de caracteres como UTF-8 para suportar acentos e caracteres especiais -->
+  <meta charset="UTF-8">
+
+  <!-- Faz o site se ajustar corretamente a dispositivos móveis (responsivo) -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Define o título que aparece na aba do navegador -->
+  <title>PraLife - Produtos Naturais</title>
+
+  <style>
+    /* obs: <!-- --> é especifico apenas para html, não css
+    Estilos aplicados ao corpo da página */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom, #8B0000, #3E1F0E); /* Gradiente do fundo */
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Cabeçalho com fundo escuro, texto centralizado e animação */
+    header {
+      background: #5a0d0d;
+      padding: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      animation: fadeInDown 1.5s ease-out;
+    }
+
+    /* Título do site */
+    header h1 {
+      margin: 0;
+      font-size: 3rem;
+      color: #ffdddd;
+      text-shadow: 2px 2px #000;
+    }
+
+    /* Ícones e links do menu de navegação
+     nav - cria links e direções */
+    .nav-icons {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 1rem;
+    }
+
+    /* Links dentro da navegação
+     a - elemento âncora, indica o destino do link*/
+    .nav-icons a {
+      color: #ffdddd;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 10px;
+      background-color: #7b2b2b;
+      transition: background-color 0.3s;
+    }
+
+    /* Efeito ao passar o mouse nos links do menu */
+    .nav-icons a:hover {
+      background-color: #856153;
+    }
+
+    /* Seções gerais da página */
+    .section {
+      padding: 4rem 2rem;
+      text-align: center;
+      animation: fadeIn 2s ease-in;
+      position: relative;
+    }
+
+    /* Seção inicial com imagem de fundo
+     .hero section - é projetado para chamar a atenção do usuário e transmitir a mensagem principal do site.
+     align-items - alinhamento dos itens*/
+    .hero-section {
+      background-image: url('https://images.pexels.com/photos/429807/pexels-photo-429807.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      min-height: 450px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    /* Camada escura sobre a imagem para melhorar contraste
+     .overlay - camada acima */
+    .hero-section .overlay {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 3rem;
+      border-radius: 20px;
+      max-width: 800px;
+      color: #fff;
+    }
+
+    /* Títulos dentro das seções */
+    .section h2 {
+      font-size: 2rem;
+      color: #ffe6e6;
+    }
+
+    /* Parágrafos das seções */
+    .section p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 1rem auto;
+      color: #f9f2f2;
+    }
+
+    /* Lista de produtos */
+    .products {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    /* Bloco individual de produto */
+    .product {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      padding: 1.5rem;
+      width: 250px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s ease;
+      animation: popIn 1.2s ease;
+    }
+
+    /* Efeito de zoom ao passar o mouse no produto */
+    .product:hover {
+      transform: scale(1.05);
+    }
+
+    /* Imagem do produto */
+    .product img {
+      width: 100%;
+      border-radius: 15px;
+    }
+
+    /* Seção do formulário de contato */
+    .form-section {
+      padding: 3rem;
+      background-color: #4e1414;
+      text-align: center;
+    }
+
+    .form-section h2 {
+      margin-bottom: 1rem;
+    }
+
+    /* Estilos do formulário */
+    form {
+      max-width: 500px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    /* Campos do formulário */
+    input, textarea, button {
+      padding: 0.8rem;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+    }
+
+    /* Botão de envio */
+    button {
+      background-color: #b73737;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #d84a4a;
+    }
+
+    /* Footer - expecifico para o rodapé da página */
+    footer {
+      background: #3a0a0a;
+      padding: 2rem 1rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #ddd;
+    }
+
+    footer .footer-section {
+      margin-bottom: 1rem;
+    }
+
+    footer a {
+      color: #ffa7a7;
+      text-decoration: none;
+      margin: 0 0.5rem;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Animações personalizadas
+    fadeIndowm - aparecer de cima pra baixo
+    fadeIn - aparecer deslizando
+    popIn - pula
+    from to - de para*/
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes popIn {
+      from {
+        opacity: 0;
+        transform: scale(0.7);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+  </style>
+</head>
+ <!--
+
+  div - é usada para definir uma divisão ou uma seção em um documento HTML.
+  É um elemento de nível de bloco que é comumente usado como um contêiner para outros elementos HTML
+
+  h(nº) - usado para tamanho do letra
+
+  p - paragrafos
+
+  href - referencias - links
+
+  class - é usado para especificar um ou mais nomes de classe para um elemento HTML
+
+
+-->
+
+<body>
+  <header>
+    <h1>PraLife</h1>
+    <div class="nav-icons">
+      <a href="#login">Entrar</a>
+      <a href="#carrinho">🛒 Carrinho</a>
+    </div>
+  </header>
+
+  <section class="section hero-section">
+    <div class="overlay">
+      <h2>Saúde com Sabor da Natureza</h2>
+      <p>A PraLife é uma empresa brasileira comprometida com o bem-estar e a nutrição natural. Desenvolvemos snacks saudáveis como nossos crocantes chips de frutas vermelhas e o potente gel energético de cacau. Toda nossa linha de produtos utiliza ingredientes da flora brasileira, promovendo vitalidade com o melhor da natureza.</p>
+    </div>
+  </section>
+    <!--
+         SRC - indica pastas e links para imagens por exemplo
+         alt - descrição do link ou imagem
+    -->
+
+  <section class="section">
+    <h2>Nossos Produtos</h2>
+    <div class="products">
+      <div class="product">
+        <img src="Chips.png" alt="Chips de Frutas Vermelhas">
+        <h3>Chips de Frutas Vermelhas</h3>
+        <p>Leves, crocantes e feitos com morango, amora e cereja. Um lanche delicioso e saudável.</p>
+      </div>
+      <div class="product">
+        <img src="Gel.png" alt="Gel Energético de Cacau">
+        <h3>Gel Energético de Cacau</h3>
+        <p>Fonte natural de energia com cacau e ingredientes nativos do Brasil. Ideal para esportes e rotina ativa.</p>
+      </div>
+    </div>
+  </section>
+    <!--
+ 
+         form action - (formaction) é usado para especificar a URL para onde os dados do formulário
+         devem ser enviados quando um formulário é enviado. Esse atributo substitui o atributo de ação
+         padrão do formulário e só é aplicável a <button> <input> elementos e com type="submit"
+
+        Method - metodo ou forma utilizada
+
+        placeholder - caixinha para colocar informações (escrever)
+
+        text area - especifico para colocar mensagens maiores como comentários
+
+        rows - permite a organização dos dados em linhas e colunas,
+         facilitando a apresentação e a interpretação de dados estruturados.
+         
+        button type - tipo do botão ao passar o mouse por cima (também muda para a mãozinha)
+
+    -->
+  <section class="form-section">
+    <h2>Fale Conosco</h2>
+    <form action="#" method="post">
+      <input type="text" placeholder="Seu nome" required>
+      <input type="email" placeholder="Seu e-mail" required>
+      <textarea placeholder="Sua mensagem" rows="5" required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+
+  <!--  strong -  é usado para definir texto com grande importância, fica em negrito
+       
+        &copy - é útil para copiar texto de um campo de texto ou qualquer outro elemento HTML
+        mas esecificadamente para colocar "rotulos" e marcações de empresas no fim dos sites
+        são como créditos
+
+  -->
+  <footer>
+    <div class="footer-section">
+      <strong>Contato:</strong><br>
+      contato@pralife.com.br | (19) 99999-9999
+    </div>
+    <div class="footer-section">
+      <strong>Formas de pagamento:</strong><br>
+      Cartões de crédito e débito, PIX, Boleto bancário
+    </div>
+    <div class="footer-section">
+      <strong>Siga-nos:</strong><br>
+      <a href="https://instagram.com/pralife.br" target="_blank">Instagram</a>
+    </div>
+    <div class="footer-section">
+      &copy; 2025 PraLife - Todos os direitos reservados. Site desenvolvido com amor pela natureza brasileira.
+    </div>
+  </footer>
+</body>
+</html>
